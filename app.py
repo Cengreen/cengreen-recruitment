@@ -73,8 +73,12 @@ def index():
 
         # Notify admin
       try:
+    try:
     send_email(ADMIN_EMAIL, f"New Application: {name}", f"{name} applied for {position}.\nEmail: {email}\nPhone: {phone}\nCV: {cv}")
     send_email(email, "Thank you for your application", AUTO_REPLY_MESSAGE)
+except Exception as e:
+    print("Email error:", str(e))
+
 except Exception as e:
     print("Email error:", e)
 
